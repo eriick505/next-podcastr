@@ -1,3 +1,4 @@
+import React from 'react';
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -7,6 +8,7 @@ import ptBR from 'date-fns/locale/pt-BR';
 
 import { api } from '../services/api';
 import { convertDurationTotimeString } from '../utils/convertDurationToTimeString';
+import { PlayerContext } from '../Contexts/PlayerContext';
 
 import styles from './home.module.scss';
 
@@ -27,6 +29,8 @@ type HomeProps = {
 };
 
 export default function Home({ latesEpisodes, allEpisodes }: HomeProps) {
+  const { play } = React.useContext(PlayerContext);
+
   return (
     <div className={styles.homePage}>
       <section className={styles.latesEpisodes}>
@@ -52,7 +56,7 @@ export default function Home({ latesEpisodes, allEpisodes }: HomeProps) {
                 <span>{episode.durationAsString}</span>
               </div>
 
-              <button type="button">
+              <button type="button" onClick={() => play(episode)}>
                 <img src="/images/play-green.svg" alt="tocar episodio" />
               </button>
             </li>
@@ -93,7 +97,7 @@ export default function Home({ latesEpisodes, allEpisodes }: HomeProps) {
                 <td>{episode.members}</td>
                 <td style={{ width: 100 }}>{episode.publishedAt}</td>
                 <td>
-                  <button type="button">
+                  <button type="button" onClick={() => play(episode)}>
                     <img src="/images/play-green.svg" alt="Tocar Episódio" />
                   </button>
                 </td>
