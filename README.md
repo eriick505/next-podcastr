@@ -56,8 +56,8 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
 <h3 id="tecnologias">⚡ Tecnologias/Pacotes utilizado(a)s</h3>
 <hr />
--<a href="https://www.typescriptlang.org/" target="_blank">TypeScripts</a>
--<a href="https://nextjs.org/" target="_blank">Next.JS</a>
+-TypeScripts
+-Next.JS
 -<a href="https://sass-lang.com/" target="_blank">SASS</a>
 -<a href="https://github.com/typicode/json-server" target="_blank">JSON Server</a>
 -<a href="https://date-fns.org/" target="_blank">Date-fns</a>
