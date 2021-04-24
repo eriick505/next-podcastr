@@ -1,14 +1,15 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
-import Link from 'next/link';
-import Image from 'next/image';
+import { GetStaticPaths, GetStaticProps } from "next";
+import Link from "next/link";
+import Image from "next/image";
 
-import { format, parseISO } from 'date-fns';
-import ptBR from 'date-fns/locale/pt-BR';
+import { format, parseISO } from "date-fns";
+import ptBR from "date-fns/locale/pt-BR";
 
-import { api } from '../../services/api';
-import { convertDurationTotimeString } from '../../utils/convertDurationToTimeString';
+import { api } from "../../services/api";
+import { convertDurationTotimeString } from "../../utils/convertDurationToTimeString";
 
-import styles from './episode.module.scss';
+import styles from "./episode.module.scss";
+import { usePlayer } from "../../Contexts/PlayerContext";
 
 type Episode = {
   id: string;
@@ -27,6 +28,8 @@ type EpisodeProps = {
 };
 
 export default function Episode({ episode }: EpisodeProps) {
+  const { play } = usePlayer();
+
   return (
     <div className={styles.episode}>
       <div className={styles.thumbnailContainer}>
@@ -43,7 +46,7 @@ export default function Episode({ episode }: EpisodeProps) {
           objectFit="cover"
         />
 
-        <button type="button">
+        <button type="button" onClick={() => play(episode)}>
           <img src="/images/play.svg" alt="Tocar Episodio" />
         </button>
       </div>
@@ -64,25 +67,25 @@ export default function Episode({ episode }: EpisodeProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data } = await api.get('episodes', {
+  const { data } = await api.get("episodes", {
     params: {
       _limit: 2,
-      _sort: 'published_at',
-      _order: 'desc',
+      _sort: "published_at",
+      _order: "desc",
     },
   });
 
-  const paths = data.map(episode => ({
+  const paths = data.map((episode) => ({
     params: { slug: episode.id },
   }));
 
   return {
     paths,
-    fallback: 'blocking',
+    fallback: "blocking",
   };
 };
 
-export const getStaticProps: GetStaticProps = async ctx => {
+export const getStaticProps: GetStaticProps = async (ctx) => {
   const { slug } = ctx.params;
 
   const { data } = await api.get(`/episodes/${slug}`);
@@ -92,7 +95,7 @@ export const getStaticProps: GetStaticProps = async ctx => {
     title: data.title,
     thumbnail: data.thumbnail,
     members: data.members,
-    publishedAt: format(parseISO(data.published_at), 'd MMM yy', {
+    publishedAt: format(parseISO(data.published_at), "d MMM yy", {
       locale: ptBR,
     }),
     durationAsString: convertDurationTotimeString(Number(data.file.duration)),
