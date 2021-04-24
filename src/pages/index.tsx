@@ -1,16 +1,16 @@
-import React from 'react';
-import { GetStaticProps } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
+import React from "react";
+import { GetStaticProps } from "next";
+import Image from "next/image";
+import Link from "next/link";
 
-import { format, parseISO } from 'date-fns';
-import ptBR from 'date-fns/locale/pt-BR';
+import { format, parseISO } from "date-fns";
+import ptBR from "date-fns/locale/pt-BR";
 
-import { api } from '../services/api';
-import { convertDurationTotimeString } from '../utils/convertDurationToTimeString';
-import { PlayerContext } from '../Contexts/PlayerContext';
+import { api } from "../services/api";
+import { convertDurationTotimeString } from "../utils/convertDurationToTimeString";
+import { usePlayer } from "../Contexts/PlayerContext";
 
-import styles from './home.module.scss';
+import styles from "./home.module.scss";
 
 type Episode = {
   id: string;
@@ -29,7 +29,7 @@ type HomeProps = {
 };
 
 export default function Home({ latesEpisodes, allEpisodes }: HomeProps) {
-  const { playList } = React.useContext(PlayerContext);
+  const { playList } = usePlayer();
 
   const episodeList = [...latesEpisodes, ...allEpisodes];
 
@@ -121,21 +121,21 @@ export default function Home({ latesEpisodes, allEpisodes }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await api.get('episodes', {
+  const { data } = await api.get("episodes", {
     params: {
       _limit: 12,
-      _sort: 'published_at',
-      _order: 'desc',
+      _sort: "published_at",
+      _order: "desc",
     },
   });
 
-  const episodes = data.map(episode => {
+  const episodes = data.map((episode) => {
     return {
       id: episode.id,
       title: episode.title,
       thumbnail: episode.thumbnail,
       members: episode.members,
-      publishedAt: format(parseISO(episode.published_at), 'd MMM yy', {
+      publishedAt: format(parseISO(episode.published_at), "d MMM yy", {
         locale: ptBR,
       }),
       durationAsString: convertDurationTotimeString(
