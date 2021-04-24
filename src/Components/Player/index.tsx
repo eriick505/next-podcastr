@@ -17,6 +17,8 @@ export function Player() {
     isPlaying,
     togglePlay,
     setPlayingState,
+    playNext,
+    playPrevious,
   } = React.useContext(PlayerContext);
 
   React.useEffect(() => {
