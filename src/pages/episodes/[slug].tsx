@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
+import Head from "next/head";
 import Image from "next/image";
 
 import { format, parseISO } from "date-fns";
@@ -7,9 +8,9 @@ import ptBR from "date-fns/locale/pt-BR";
 
 import { api } from "../../services/api";
 import { convertDurationTotimeString } from "../../utils/convertDurationToTimeString";
+import { usePlayer } from "../../Contexts/PlayerContext";
 
 import styles from "./episode.module.scss";
-import { usePlayer } from "../../Contexts/PlayerContext";
 
 type Episode = {
   id: string;
@@ -32,6 +33,10 @@ export default function Episode({ episode }: EpisodeProps) {
 
   return (
     <div className={styles.episode}>
+      <Head>
+        <title>{episode.title} | Podcastr</title>
+      </Head>
+
       <div className={styles.thumbnailContainer}>
         <Link href="/">
           <button type="button">
