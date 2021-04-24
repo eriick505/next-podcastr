@@ -11,7 +11,7 @@
 
 <h3 id="objetivo">🔖 Objetivo</h3>
 <hr />
-<p align="center">🚀 Projeto desenvolvido para fins de estudo do framework Next.js</p>
+<p align="center">🚀 Projeto desenvolvido para fins de estudo do framework Next.js com TypeScript</p>
 
 <h3 id="preview">🖥️ Preview do projeto</h3>
 <hr />
@@ -57,11 +57,14 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 <h3 id="tecnologias">⚡ Tecnologias/Pacotes utilizado(a)s</h3>
 <hr />
 
--TypeScripts
--Next.JS
--SASS
-
--<a href="https://github.com/typicode/json-server" target="_blank">JSON Server</a> -<a href="https://date-fns.org/" target="_blank">Date-fns</a> -<a href="https://slider-react-component.vercel.app/" target="_blank">rc-slider</a>
+<ul>
+<li>- <a href="https://www.typescriptlang.org/" target="_blank">TypeScripts</a></li>
+<li>- <a href="https://nextjs.org/" target="_blank">Next.JS</a></li>
+<li>- <a href="https://sass-lang.com/" target="_blank">SASS</a></li>
+<li>- <a href="https://github.com/typicode/json-server" target="_blank">JSON Server</a></li>
+<li>- <a href="https://date-fns.org/" target="_blank">Date-fns</a></li>
+<li>- <a href="https://slider-react-component.vercel.app/" target="_blank">rc-slider</a></li>
+</ul>
 
 <h3 id="autor">😄 Autor</h3>
 <hr />
