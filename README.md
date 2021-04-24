@@ -52,16 +52,16 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
 #### Execute a aplicação em modo de desenvolvimento
 
-`Àbra http://localhost:3000 com o seu navegador para ver o resultado.`
+`Abra http://localhost:3000 com o seu navegador para ver o resultado.`
 
 <h3 id="tecnologias">⚡ Tecnologias/Pacotes utilizado(a)s</h3>
 <hr />
-- <a href="https://www.typescriptlang.org/" target="_blank">TypeScripts</a>
-- <a href="https://nextjs.org/" target="_blank">Next.JS</a>
-- <a href="https://sass-lang.com/" target="_blank">SASS</a>
-- <a href="https://github.com/typicode/json-server" target="_blank">JSON Server</a>
-- <a href="https://date-fns.org/" target="_blank">Date-fns</a>
-- <a href="https://slider-react-component.vercel.app/" target="_blank">rc-slider</a>
+-<a href="https://www.typescriptlang.org/" target="_blank">TypeScripts</a>
+-<a href="https://nextjs.org/" target="_blank">Next.JS</a>
+-<a href="https://sass-lang.com/" target="_blank">SASS</a>
+-<a href="https://github.com/typicode/json-server" target="_blank">JSON Server</a>
+-<a href="https://date-fns.org/" target="_blank">Date-fns</a>
+-<a href="https://slider-react-component.vercel.app/" target="_blank">rc-slider</a>
 
 <h3 id="autor">😄 Autor</h3>
 <hr />
