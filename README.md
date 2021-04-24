@@ -56,12 +56,12 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
 <h3 id="tecnologias">⚡ Tecnologias/Pacotes utilizado(a)s</h3>
 <hr />
+
 -TypeScripts
 -Next.JS
--<a href="https://sass-lang.com/" target="_blank">SASS</a>
--<a href="https://github.com/typicode/json-server" target="_blank">JSON Server</a>
--<a href="https://date-fns.org/" target="_blank">Date-fns</a>
--<a href="https://slider-react-component.vercel.app/" target="_blank">rc-slider</a>
+-SASS
+
+-<a href="https://github.com/typicode/json-server" target="_blank">JSON Server</a> -<a href="https://date-fns.org/" target="_blank">Date-fns</a> -<a href="https://slider-react-component.vercel.app/" target="_blank">rc-slider</a>
 
 <h3 id="autor">😄 Autor</h3>
 <hr />
